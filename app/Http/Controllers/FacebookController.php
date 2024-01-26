@@ -12,11 +12,17 @@ use Exception;
 
 class FacebookController extends Controller
 {
-    public function facebookRedirect()
+    /**
+     * Get the url for facebook auth
+     */
+    public function facebookUrl()
     {
-        return Socialite::with('facebook')->redirect();
+        return Socialite::with('facebook')->redirect()->getTargetUrl();
     }
 
+    /**
+     * Recieve `code` param and login the user in
+     */
     public function loginWithFacebook()
     {
         try {
