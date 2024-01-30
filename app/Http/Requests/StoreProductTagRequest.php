@@ -24,7 +24,8 @@ class StoreProductTagRequest extends FormRequest
         return [
             'tagName' => ['required'],
             'productId' => ['required', 'exists:products,id'],
-            'image' => ['required', 'image']
+            'images' => ['required', 'array'],
+            'images.*' => ['image']
         ];
     }
 }

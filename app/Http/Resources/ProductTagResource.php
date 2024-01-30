@@ -16,7 +16,7 @@ class ProductTagResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'image' =>  '/tags/' . $this->image,
+            'images' => TagImageResource::collection($this->whenLoaded('images')),
             'name' => $this->tag_name
         ];
     }
