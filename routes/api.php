@@ -47,7 +47,7 @@ Route::group(['prefix' => 'auth'], function () {
 
     // Facebook Auth
     Route::group(['prefix' => 'facebook/login'], function () {
-        Route::get('url' , [FacebookController::class, 'facebookUrl']);
+        Route::get('url' , [FacebookController::class, 'facebookUrl'])->middleware('web');
         Route::get('', [FacebookController::class, 'loginWithFacebook']);
     });
 });
